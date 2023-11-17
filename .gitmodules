@@ -1,0 +1,9 @@
+[submodule "sdfstudio"]
+	path = sdfstudio
+	url = https://github.com/autonomousvision/sdfstudio.git
+[submodule "omnidata"]
+	path = omnidata
+	url = https://github.com/EPFL-VILAB/omnidata.git
+[submodule "LLFF"]
+	path = LLFF
+	url = https://github.com/Fyusion/LLFF.git
