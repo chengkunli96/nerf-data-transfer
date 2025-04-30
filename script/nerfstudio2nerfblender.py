@@ -16,7 +16,7 @@ def read_transforms_json(file):
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--file', type=str, help='path to transforms_json file')
+    parser.add_argument('--jsonfile', type=str, help='path to transforms_json file')
     args = parser.parse_args()
     return args
 
@@ -26,14 +26,14 @@ def convert_jpg_to_png(jpg_path, png_path):
 
 if __name__ == "__main__":
     args = get_args()
-    meta = read_transforms_json(args.file)
+    meta = read_transforms_json(args.jsonfile)
 
     # compute comera_angle_x
     focal = meta["fl_x"]
     image_width = meta["w"]
     meta["camera_angle_x"] = 2 * numpy.arctan(image_width / (2 * focal))
 
-    dir_name = os.path.dirname(args.file)
+    dir_name = os.path.dirname(args.jsonfile)
     # transform jpg to png of a dir 
     new_dir = os.path.join(dir_name, "..", 'blendertype')
     new_img_dir = os.path.join(new_dir, "images")

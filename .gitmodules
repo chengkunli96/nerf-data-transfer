@@ -7,3 +7,6 @@
 [submodule "LLFF"]
 	path = LLFF
 	url = https://github.com/Fyusion/LLFF.git
+[submodule "colmap"]
+	path = colmap
+	url = https://github.com/colmap/colmap.git

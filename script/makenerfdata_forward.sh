@@ -30,23 +30,23 @@ else
 fi
 
 
-# SDF_FILE=$SDF_DATA_PATH/meta_data.json
-# if [ -e "$SDF_FILE" ]; then
-#     echo "SDFstudio has done!"
-# else
-#     echo "Starting SDFstudio..."
-#     source $CONDA_ACTIVATE nerfdata
-#     cd $CURRENT_DIR/../sdfstudio
-#     python scripts/datasets/process_nerfstudio_to_sdfstudio.py \
-#         --data $NERF_DATA_PATH \
-#         --output-dir $SDF_DATA_PATH \
-#         --data-type colmap \
-#         --scene-type indoor \
-#         --mono-prior \
-#         --omnidata-path $OMNIDATA_PATH \
-#         --pretrained-models $OMNIDATA_PRETRAINED_MODELS
-#     echo "Done SDFstudio!"
-# fi
+SDF_FILE=$SDF_DATA_PATH/meta_data.json
+if [ -e "$SDF_FILE" ]; then
+    echo "SDFstudio has done!"
+else
+    echo "Starting SDFstudio..."
+    source $CONDA_ACTIVATE nerfdata
+    cd $CURRENT_DIR/../sdfstudio
+    python scripts/datasets/process_nerfstudio_to_sdfstudio.py \
+        --data $NERF_DATA_PATH \
+        --output-dir $SDF_DATA_PATH \
+        --data-type colmap \
+        --scene-type indoor \
+        --mono-prior \
+        --omnidata-path $OMNIDATA_PATH \
+        --pretrained-models $OMNIDATA_PRETRAINED_MODELS
+    echo "Done SDFstudio!"
+fi
 
 
 LLFF_FILE=$LLFF_DATA_PATH/poses_bounds.npy
@@ -76,7 +76,7 @@ fi
 #     # cp -r $NERF_DATA_PATH $Blender_DATA_PATH
 #     # mv $NERF_FILE $Blender_FILE
 #     source $CONDA_ACTIVATE sdfstudio
-#     python "$CURRENT_DIR/nerfstudio2nerfblender.py" --file $NERF_FILE
+#     python "$CURRENT_DIR/nerfstudio2nerfblender.py" --jsonfile $NERF_FILE
 #     echo "Done NerfBlender!"
 # fi
 
